@@ -1,6 +1,5 @@
-clear all
+clear all;
 clc;
-
 % 原始图像库路径
 originImgPath = 'DRimgs/';
 % 参考结果图像路径
@@ -8,7 +7,13 @@ referenceImgPath = 'RefImgs/';
 % 遍历所有jpg格式文件
 imgDir  = dir([originImgPath '*.tif']);
 % 遍历结构体就可以一一处理图片了
-for i = 1:(length(imgDir)-4) 
+
+
+% 选取本次运行要查看的图片数
+number=2;    
+% number=length(imgDir); % 查看全部图像
+
+for i = 1:number
     % 提取每张图片文件名
     name = imgDir(i).name((1:end-4)); 
     originImg = imread([originImgPath name '.tif']);           %读取原始图片
@@ -23,6 +28,5 @@ for i = 1:(length(imgDir)-4)
     resultImg=homomorphicFilter(originImg);
     
     %显示结果图像
-    subplot(223),imshow(resultImg,[]);title('同态滤波增强');
-    
+    subplot(2,2,3),imshow(resultImg,[]);title('同态滤波增强');
 end

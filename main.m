@@ -10,7 +10,7 @@ imgDir  = dir([originImgPath '*.tif']);
 
 
 % 选取本次运行要查看的图片数
-number=2;    
+number=7;    
 % number=length(imgDir); % 查看全部图像
 
 for i = 1:number
@@ -24,9 +24,14 @@ for i = 1:number
     %显示参考图像
     subplot(2,2,2),imshow(referenceImg,[]);title('参考结果图像');
     
-    % 使用同态滤波增强
-    resultImg=homomorphicFilter(originImg);
+    % 使用同态滤波增强:homomorphicFilter(originImg,rL,rH,c,D0)
+    resultImg=homomorphicFilter(originImg,0.25,2.2,2.0,30); 
     
+    %保存实验结果图
+    resultPath = 'ResImgs/';
+    resultImgName=[name,'_result.tif'];
+    saveImg(resultImg,resultPath,resultImgName);
+
     %显示结果图像
     subplot(2,2,3),imshow(resultImg,[]);title('同态滤波增强');
 end

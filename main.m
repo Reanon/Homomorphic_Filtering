@@ -20,18 +20,18 @@ for i = 1:number
     referenceImg = imread([referenceImgPath name '_out.tif']); %读取参考结果图片
     
     %显示原始图像
-    figure('name',name),subplot(2,2,1),imshow(originImg,[0 4096]);title('原始图片');
+    figure('name',name),subplot(1,3,1),imshow(originImg,[0 4096]);title('原始图片');
     %显示参考图像
-    subplot(2,2,2),imshow(referenceImg,[]);title('参考结果图像');
+    subplot(1,3,2),imshow(referenceImg,[0 4096]);title('参考结果图像');
     
     % 使用同态滤波增强:homomorphicFilter(originImg,rL,rH,c,D0)
     resultImg=homomorphicFilter(originImg,0.25,2.2,2.0,30); 
     
-    %保存实验结果图
-    resultPath = 'ResImgs/';
-    resultImgName=[name,'_result.tif'];
-    saveImg(resultImg,resultPath,resultImgName);
+%     %保存实验结果图
+%     resultPath = 'ResImgs/';
+%     resultImgName=[name,'_result.tif'];
+%     saveImg(resultImg,resultPath,resultImgName);
 
     %显示结果图像
-    subplot(2,2,3),imshow(resultImg,[]);title('同态滤波增强');
+    subplot(1,3,3),imshow(resultImg,[]);title('同态滤波增强');
 end

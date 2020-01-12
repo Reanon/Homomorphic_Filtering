@@ -2,11 +2,12 @@ function [resultImg] = homomorphicFilter(originImg,rL,rH,c,D0)
 % homomorphicFilter 同态滤波器
 % originImg：原始医学图像
 % resultImg: 结果医学图像
-% 以下参数可选，要么全设置，要么
+
+% 以下参数可选，要么全设置，要么设置为默认
 % rL: 低频分量
 % rH: 高频分量
-% c:c为一个常数，控制滤波器的形态，即从低频到高频过渡段的陡度（斜率），其值越大，斜坡带越陡峭
-
+% c:  c为一个常数，控制滤波器的形态，即从低频到高频过渡段的陡度（斜率），其值越大，斜坡带越陡峭
+% D0: 截止频率
 % 当函数没有设置参数时
 if nargin < 5,D0 = 20;end
 % 锐化参数

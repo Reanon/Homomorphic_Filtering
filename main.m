@@ -9,7 +9,7 @@ imgDir  = dir([originImgPath '*.tif']);
 % 遍历结构体就可以一一处理图片了
 
 % 选取本次运行要查看的图片数
-number=6;    
+number=7;    
 % number=length(imgDir); % 查看全部图像
 
 for i = 1:number
@@ -28,7 +28,6 @@ for i = 1:number
     
     %方法二：直方图均衡化，就是不会压缩原始图像
     resultImg  = HistogramEqualization(originImg);
-    
     
     %保存实验结果图
     resultPath = 'ResImgs/';

@@ -1,10 +1,6 @@
 function  [resultImg]  = HistogramEqualization(originImg)
 %HistogramEqualization 直方图均衡
 
- 
-% subplot(2,3,2);imshow(originImg);title('灰度图');
-% subplot(2,3,3);imhist(originImg);title('灰度图');
-
 [Hight, Width] = size(originImg);
 
 %图像的值范围
@@ -49,7 +45,5 @@ end
  
 % 输出仍然要记得改数据类型
 resultImg = uint16(resultImg);
-% subplot(2,3,5);imshow(resultImg);title('直方图均衡化');
-% subplot(2,3,6);imhist(resultImg);title('直方图均衡化');
 end
 

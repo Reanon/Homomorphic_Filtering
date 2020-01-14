@@ -18,6 +18,7 @@ if nargin < 2,rL = 0.25;end
 
 %转换数据类型为double型
 I=im2double(originImg);    
+% I=double(originImg);  
 [Hight,Width]=size(I);
 
 %对图像进行填充
